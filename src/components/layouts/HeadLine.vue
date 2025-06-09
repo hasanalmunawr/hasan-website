@@ -9,7 +9,7 @@ const isActiveLink = (pathRoute) => {
 
 <template>
   <footer
-      class="fixed w-full top-10 text-xs text-white bg-neutral-900 border-b border-neutral-700 flex items-center px-2 py-1 font-mono h-10"
+      class="fixed w-full z-10 top-10 text-xs text-white bg-neutral-900 border-b border-neutral-700 flex items-center px-2 py-1 font-mono h-10"
   >
     <!-- Tabs -->
     <div class="flex items-center space-x-1 ">
