@@ -1,13 +1,14 @@
 <script setup>
 
 import MainLayout from "@/layouts/MainLayout.vue";
+import ContainerContent from "@/components/ContainerContent.vue";
 </script>
 
 <template>
   <MainLayout>
-    <div class="text-white">
-      This is About View
-    </div>
+    <ContainerContent>
+      hello guyss here
+    </ContainerContent>
   </MainLayout>
 </template>
 
