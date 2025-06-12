@@ -30,10 +30,8 @@ onMounted(async () => {
       </div>
 
       <!-- Main Content -->
-      <div ref="mainContent"  class="bg-red-300 pb-8 max-w-6xl mx-auto ">
-        <div class="bg-[#2b2b2b] shadow-lg rounded-2xl p-8">
+      <div ref="mainContent"  class="pb-8 max-w-6xl mx-auto ">
         <slot></slot>
-        </div>
       </div>
     </div>
   </div>

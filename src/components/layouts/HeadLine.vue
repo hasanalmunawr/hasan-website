@@ -40,11 +40,13 @@ const isActiveLink = (pathRoute) => {
         </button>
       </RouterLink>
 
+
+
       <RouterLink
-          to="/skill"
-          :class="[isActiveLink('/skill') ? 'border-b-3 border-blue-600' : '', 'flex items-center bg-neutral-900 text-white px-3 py-3 rounded-t-sm']">
+          to="/experiences"
+          :class="[isActiveLink('/experiences') ? 'border-b-3 border-blue-600' : '', 'flex items-center bg-neutral-900 text-white px-3 py-3 rounded-t-sm']">
         <div class="text-blue-400 text-[11px] font-bold mr-1">M</div>
-        <span class="text-[11px]">SKILLS.md</span>
+        <span class="text-[11px]">EXPERIENCE.md</span>
         <button
             class="ml-2 text-neutral-400 hover:text-red-500 text-[11px] transition"
             title="Close"
@@ -54,10 +56,10 @@ const isActiveLink = (pathRoute) => {
       </RouterLink>
 
       <RouterLink
-          to="/experiences"
-          :class="[isActiveLink('/experiences') ? 'border-b-3 border-blue-600' : '', 'flex items-center bg-neutral-900 text-white px-3 py-3 rounded-t-sm']">
+          to="/skill"
+          :class="[isActiveLink('/skill') ? 'border-b-3 border-blue-600' : '', 'flex items-center bg-neutral-900 text-white px-3 py-3 rounded-t-sm']">
         <div class="text-blue-400 text-[11px] font-bold mr-1">M</div>
-        <span class="text-[11px]">EXPERIENCE.md</span>
+        <span class="text-[11px]">SKILLS.md</span>
         <button
             class="ml-2 text-neutral-400 hover:text-red-500 text-[11px] transition"
             title="Close"
