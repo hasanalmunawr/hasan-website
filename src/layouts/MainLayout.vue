@@ -7,7 +7,7 @@ import ChevronDown from "vue-material-design-icons/ChevronDown.vue";
 import IDEIcon from '../assets/images/icon-IDE.png'
 import HeadLine from "@/components/layouts/HeadLine.vue";
 import Footerlayout from "@/layouts/Footerlayout.vue";
-
+import ProjectView from "@/components/layouts/ProjectView.vue";
 
 import Play from 'vue-material-design-icons/Play.vue'
 import Debug from 'vue-material-design-icons/Bug.vue'
@@ -19,10 +19,11 @@ import AccountPlusIcon from 'vue-material-design-icons/AccountPlus.vue'
 
 
 const openSideNav = ref(false);
+const openProjectFile = ref(false);
 const openDropDown = ref(false);
 const isMobile = computed(() => window.innerWidth < 640);
-const toggleSideNav = () => {
-  openSideNav.value = !openSideNav.value;
+const toggleProjectFile = () => {
+  openProjectFile.value = !openProjectFile.value;
 };
 const toggleDropdown = () => {
   openDropDown.value = !openDropDown.value;
@@ -78,8 +79,9 @@ const menus = [
 
       <!-- Middle Search Bar -->
       <div class="w-[600px] hidden md:block text-white">
-        <!--        <button @click="toastIsi">-->
-        <!--        </button>-->
+                <button @click="toggleProjectFile">
+                  test
+                </button>
       </div>
 
       <!-- Right profile picture -->
@@ -150,6 +152,7 @@ const menus = [
     <!-- Side Navigation bar -->
     <SideNavDesktop :menus="menus" :isMobile="isMobile" :openSideNav="openSideNav"/>
 
+    <ProjectView :isMobile="isMobile" :openSideNav="openProjectFile" />
     <!-- Mobile friendly Side Nav -->
     <SideNavMobile :menus="menus" :isMobile="isMobile" :openSideNav="openSideNav"/>
   </div>
@@ -159,7 +162,7 @@ const menus = [
   <div
       v-if="!isMobile"
       :style="{
-    width: openSideNav ? 'calc(100% - 240px)' : 'calc(100% - 38px)'
+    width: openProjectFile ? 'calc(100% - 240px)' : 'calc(100% - 38px)'
   }"
       class="h-[calc(100vh-60px)] absolute right-0 mt-14 transition-colors duration-300 bg-neutral-900 text-black  "
   >
