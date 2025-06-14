@@ -67,9 +67,9 @@ const menus = [
         <div
             class="flex items-center px-3 py-1 rounded-lg text-white space-x-2 transition duration-300 hover:bg-white/10 hover:backdrop-blur-sm">
           <div class="bg-pink-500 text-white rounded-lg w-6 h-6 flex items-center justify-center text-xs font-bold">
-            PB
+            H
           </div>
-          <span class="text-xs">personal-branding</span>
+          <span class="text-xs">hasan-website</span>
           <ChevronDown class="w-4 text-gray-300"/>
         </div>
         <div

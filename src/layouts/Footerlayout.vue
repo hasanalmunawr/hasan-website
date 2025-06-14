@@ -6,12 +6,12 @@ import { useRoute } from 'vue-router'
 const route = useRoute()
 
 const breadcrumbMap = {
-  '/': ['web-portofolio', 'src', 'HOME.md'],
-  '/about': ['web-portofolio', 'src', 'ABOUT.md'],
-  '/experiences': ['web-portofolio', 'src', 'EXPERIENCE.md'],
-  '/skill': ['web-portofolio', 'src', 'SKILL.md'],
-  '/projects': ['web-portofolio', 'src', 'PROJECT.md'],
-  '/contact': ['web-portofolio', 'src', 'CONTACT.md'],
+  '/': ['hasan-website', 'src', 'HOME.md'],
+  '/about': ['hasan-website', 'src', 'ABOUT.md'],
+  '/experiences': ['hasan-website', 'src', 'EXPERIENCE.md'],
+  '/skill': ['hasan-website', 'src', 'SKILL.md'],
+  '/projects': ['hasan-website', 'src', 'PROJECT.md'],
+  '/contact': ['hasan-website', 'src', 'CONTACT.md'],
 }
 
 const currentBreadcrumb = computed(() => {
@@ -44,7 +44,7 @@ const currentBreadcrumb = computed(() => {
 
     <!-- Kanan -->
     <div class="flex items-center space-x-3 text-gray-400">
-      <span class="text-green-400">Footerlayout.vue</span>
+
       <span>Vue: 3.5</span>
       <span>2 spaces</span>
       <span>UTF-8</span>

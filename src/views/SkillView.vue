@@ -89,7 +89,7 @@ const showSection = (name) => {
   <MainLayout>
     <ContainerContent>
       <CardContent title="Technical Skill">
-        <div class="p-2 sm:p-4">
+        <div class="p-2 sm:p-4 max-w-4xl">
           <div class="space-y-4">
             <h1 class="text-xl font-bold fade-in-up"
               v-intersect="{ name: 'title', callback: showSection }"

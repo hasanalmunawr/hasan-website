@@ -19,7 +19,7 @@ const props = defineProps({
 
 const menu = ref([
   {
-    label: 'web-portfolio / src',
+    label: 'hasan-website / src',
     children: [
       { label: 'HOME.md', icon: 'pi pi-user', link: '/' },
       { label: 'ABOUT.md', icon: 'pi pi-user', link: '/about' },

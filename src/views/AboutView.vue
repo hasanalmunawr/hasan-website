@@ -3,6 +3,7 @@
 import MainLayout from "@/layouts/MainLayout.vue";
 import ContainerContent from "@/components/ContainerContent.vue";
 import CardContent from "@/components/CardContent.vue";
+import Profile from '../assets/images/profile.webp'
 import MapMarkerIcon from 'vue-material-design-icons/MapMarker.vue';
 import EmailIcon from 'vue-material-design-icons/Email.vue';
 import aboutMeJson from '../data/aboutMe.json'
@@ -28,7 +29,7 @@ const aboutMe = ref(aboutMeJson)
     <ContainerContent>
       <CardContent title="About Me">
         <div class="p-2 sm:p-4 max-w-4xl">
-          <div>
+          <div class="p-3">
             <h2 class="text-xl font-semibold mb-6">About Me</h2>
             <div class="flex flex-col md:flex-row gap-8">
 
@@ -39,7 +40,7 @@ const aboutMe = ref(aboutMeJson)
                 <div class="card rounded-lg overflow-hidden w-full aspect-square mb-4 relative">
                   <img alt="Hasan Almunawar" loading="lazy" decoding="async" data-nimg="fill"
                        class="object-cover" sizes="100vw"
-                       src="https://picsum.photos/280/280"
+                       :src="Profile"
                        style="position: absolute; height: 100%; width: 100%; inset: 0px; color: transparent;">
                 </div>
                 <div class="space-y-2 fade-in-up"
@@ -102,8 +103,10 @@ const aboutMe = ref(aboutMeJson)
                          :class="{ show: visible.thesis }"
                          :style="{ transitionDelay: '1.2s' }">
                       <h4 class="font-medium">Thesis</h4>
-                      <p class="text-sm">Research multinode blockchain's Avalanche consensus protocol using
-                        dynamic graph algorithm</p></div>
+                      <p class="text-sm">
+                        Design and Implementation of a Digital E-Learning Transformation System at PT Arisamandiri Pratama
+                      </p>
+                    </div>
                   </div>
                 </div>
               </div>
