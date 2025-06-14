@@ -14,6 +14,7 @@ library.add(faUser, faCoffee, faChevronDown, faChevronRight, faFolder )
 
 // Import state management
 import {createPinia} from "pinia";
+import intersect from './directives/intersect'
 
 const pinia = createPinia();
 
@@ -21,4 +22,5 @@ createApp(App)
     .use(router)
     .use(pinia)
     .component('font-awesome-icon', FontAwesomeIcon)
+    .directive('intersect', intersect)
     .mount('#app')
