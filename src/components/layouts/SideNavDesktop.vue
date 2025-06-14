@@ -4,7 +4,10 @@ import SideNavItem from "./SideNavItem.vue"
 import Folder from 'vue-material-design-icons/FolderOutline.vue';
 import DesktopTower from 'vue-material-design-icons/DesktopTower.vue';
 
+import { useUIStore } from '@/stores/ui'
 
+
+const ui = useUIStore()
 
 const props = defineProps({
   isMobile: Boolean,
@@ -35,6 +38,7 @@ const props = defineProps({
         <!-- Item 1 -->
         <li>
           <button
+              @click="ui.isProjectSidebarOpen = !ui.isProjectSidebarOpen"
               class="w-full flex justify-center text-gray-400 p-2 text-xs font-semibold rounded-lg cursor-pointer transition-colors duration-200 hover:text-white">
             <Folder class="mr-1 text-[10px]"/>
           </button>

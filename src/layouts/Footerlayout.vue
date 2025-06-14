@@ -1,4 +1,22 @@
 <script setup>
+import {FontAwesomeIcon} from "@fortawesome/vue-fontawesome";
+import {computed} from "vue";
+import { useRoute } from 'vue-router'
+
+const route = useRoute()
+
+const breadcrumbMap = {
+  '/': ['web-portofolio', 'src', 'HOME.md'],
+  '/about': ['web-portofolio', 'src', 'ABOUT.md'],
+  '/experiences': ['web-portofolio', 'src', 'EXPERIENCE.md'],
+  '/skill': ['web-portofolio', 'src', 'SKILL.md'],
+  '/projects': ['web-portofolio', 'src', 'PROJECT.md'],
+  '/contact': ['web-portofolio', 'src', 'CONTACT.md'],
+}
+
+const currentBreadcrumb = computed(() => {
+  return breadcrumbMap[route.path] || []
+})
 
 </script>
 
@@ -9,28 +27,25 @@
     <!-- Kiri -->
     <div class="flex items-center space-x-2">
       <div class="bg-neutral-800 text-[4px] text-neutral-800 rounded border-4 border-blue-600">
-        pd
+        wp
       </div>
-      <span class="text-[8px]">personal-branding</span>
-      <span class="text-[8px]"> > </span>
-      <span class="text-[8px]"> src </span>
-      <span class="text-[8px]"> > </span>
-      <span class="text-[8px]"> README.md </span>
+      <template v-for="(item, index) in currentBreadcrumb" :key="index">
+        <template v-if="index > 0">
+          <font-awesome-icon :icon="['fas', 'chevron-right']" size="xs" />
+        </template>
+        <span class="text-[10px]">{{ item }}</span>
+      </template>
     </div>
 
     <!-- Tengah -->
     <div class="hidden sm:flex items-center space-x-1 text-gray-300">
-      <span>src</span>
-      <span>&gt;</span>
-      <span>components</span>
-      <span>&gt;</span>
-      <span>layouts</span>
+
     </div>
 
     <!-- Kanan -->
     <div class="flex items-center space-x-3 text-gray-400">
       <span class="text-green-400">Footerlayout.vue</span>
-      <span>PHP: 5.6</span>
+      <span>Vue: 3.5</span>
       <span>2 spaces</span>
       <span>UTF-8</span>
     </div>

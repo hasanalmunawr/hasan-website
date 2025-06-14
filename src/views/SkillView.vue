@@ -3,7 +3,7 @@
 import MainLayout from "@/layouts/MainLayout.vue";
 import ContainerContent from "@/components/ContainerContent.vue";
 import CardContent from "@/components/CardContent.vue";
-
+import SkillCard from "@/components/cards/SkillCard.vue";
 import JavaIcon from '../assets/svg/java.svg'
 import PhpIcon from '../assets/svg/new-php-logo.svg'
 import JavaScriptIcon from '../assets/svg/javascript.svg'
@@ -12,6 +12,77 @@ import MysqlIcon from '../assets/svg/mysql.svg'
 import SpringIcon from '../assets/svg/spring-3.svg'
 import LaravelIcon from '../assets/svg/laravel-2.svg'
 import VueIcon from '../assets/svg/Vue.js_Logo_2.svg'
+import {ref} from "vue";
+
+const visibleCard = ref({})
+const showSectionCard = (name) => {
+  visible.value[name] = true
+}
+
+const skills = [
+  {
+    title: 'Java',
+    icon: JavaIcon,
+    level: 5,
+    bgClass: 'bg-gradient-to-br from-orange-600 to-orange-800',
+    intersectName: 'java'
+  },
+  {
+    title: 'PHP',
+    icon: PhpIcon,
+    level: 5,
+    bgClass: 'bg-gradient-to-br from-indigo-500 to-purple-600',
+    intersectName: 'php'
+  },
+   {
+    title: 'JavaScript',
+    icon: JavaScriptIcon,
+    level: 5,
+    bgClass: 'bg-gradient-to-br from-yellow-500 to-yellow-600',
+    intersectName: 'javascript'
+  },
+   {
+    title: 'SQL',
+    icon: MysqlIcon,
+    level: 5,
+    bgClass: 'bg-gradient-to-br from-cyan-500 to-cyan-700',
+    intersectName: 'sql'
+  },
+ {
+    title: 'Spring Boot',
+    icon: SpringIcon,
+    level: 5,
+    bgClass: 'bg-gradient-to-br from-green-400 to-green-600',
+    intersectName: 'sql'
+  },
+ {
+    title: 'Laravel',
+    icon: LaravelIcon,
+    level: 5,
+    bgClass: 'bg-gradient-to-br from-red-500 to-red-700',
+    intersectName: 'sql'
+  },
+{
+    title: 'Vue Js',
+    icon: VueIcon,
+    level: 5,
+    bgClass: 'bg-gradient-to-br from-green-500 to-green-700',
+    intersectName: 'sql'
+  },
+
+]
+
+const visible = ref({
+  title: false,
+  description: false,
+  title2: false,
+  description2: false,
+  cardTech1: false,
+  cardTech2: false
+})
+const showSection = (name) => {
+  visible.value[name] = true
+}
 </script>
 
 <template>
@@ -20,8 +91,17 @@ import VueIcon from '../assets/svg/Vue.js_Logo_2.svg'
       <CardContent title="Technical Skill">
         <div class="p-2 sm:p-4">
           <div class="space-y-4">
-            <h1 class="text-xl font-bold">Technical Skills</h1>
-            <p>As a Software Engineer specializing in backend development, blockchain, and mathematical problems, I've
+            <h1 class="text-xl font-bold fade-in-up"
+              v-intersect="{ name: 'title', callback: showSection }"
+              :class="{ show: visible.title }"
+              :style="{ transitionDelay: '0.2s' }">
+              Technical Skills
+            </h1>
+            <p class=" fade-in-up"
+                v-intersect="{ name: 'description', callback: showSection }"
+                 :class="{ show: visible.description }"
+                 :style="{ transitionDelay: '0.4s' }">
+              As a Software Engineer specializing in backend development, . I've
               developed expertise across multiple programming languages and frameworks. My technical foundation is built
               on solving complex programming challenges and implementing robust software solutions.
             </p>
@@ -32,8 +112,16 @@ import VueIcon from '../assets/svg/Vue.js_Logo_2.svg'
             <!-- Header -->
             <div class="flex justify-between items-center mb-6">
               <div>
-                <h2 class="text-2xl font-semibold mb-1">Technology Stack</h2>
-                <p class="text-gray-600 dark:text-gray-400">
+                <h2 class="text-2xl font-semibold mb-1 fade-in-up"
+                    v-intersect="{ name: 'title2', callback: showSection }"
+                    :class="{ show: visible.title2 }"
+                    :style="{ transitionDelay: '0.4s' }">
+                  Technology Stack
+                </h2>
+                <p class="text-gray-600 dark:text-gray-400 fade-in-up"
+                   v-intersect="{ name: 'description2', callback: showSection }"
+                   :class="{ show: visible.description2 }"
+                   :style="{ transitionDelay: '0.4s' }">
                   A comprehensive set of programming languages, frameworks, and tools utilized in software development.
                 </p>
               </div>
@@ -43,132 +131,18 @@ import VueIcon from '../assets/svg/Vue.js_Logo_2.svg'
             <!-- Skills Grid -->
             <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
 
-              <!-- Java -->
-              <div class="relative overflow-hidden p-4 rounded-2xl shadow-md bg-gradient-to-br from-orange-600 to-orange-800 transition-all duration-300 ease-out">
-                <div class="relative z-10">
-                  <div class="flex items-center justify-center w-12 h-12 mb-3 rounded-xl bg-white/20 backdrop-blur">
-                    <img :src="JavaIcon" alt="Java" class="object-contain" width="32" height="32" />
-                  </div>
-                  <h3 class="text-lg font-medium text-white mb-1">Java</h3>
-                  <div class="flex space-x-1 mt-2">
-                    <div class="h-1.5 w-4 bg-white rounded-full"></div>
-                    <div class="h-1.5 w-4 bg-white rounded-full"></div>
-                    <div class="h-1.5 w-4 bg-white rounded-full"></div>
-                    <div class="h-1.5 w-4 bg-white rounded-full"></div>
-                    <div class="h-1.5 w-4 bg-white rounded-full"></div>
-                  </div>
-                </div>
-                <div class="absolute right-0 bottom-0 w-24 h-24 rounded-tl-3xl bg-white/10"></div>
-              </div>
-
-              <!-- PHP -->
-              <div class="relative overflow-hidden p-4 rounded-2xl shadow-md bg-gradient-to-br from-indigo-500 to-purple-600 transition-all duration-300 ease-out">
-                <div class="relative z-10">
-                  <div class="flex items-center justify-center w-12 h-12 mb-3 rounded-xl bg-white/20 backdrop-blur">
-                    <img :src="PhpIcon" alt="PHP" class="object-contain" width="32" height="32" />
-                  </div>
-                  <h3 class="text-lg font-medium text-white mb-1">PHP</h3>
-                  <div class="flex space-x-1 mt-2">
-                    <div class="h-1.5 w-4 bg-white rounded-full"></div>
-                    <div class="h-1.5 w-4 bg-white rounded-full"></div>
-                    <div class="h-1.5 w-4 bg-white rounded-full"></div>
-                    <div class="h-1.5 w-4 bg-white rounded-full"></div>
-                    <div class="h-1.5 w-3 bg-white/30 rounded-full"></div>
-                  </div>
-                </div>
-                <div class="absolute right-0 bottom-0 w-24 h-24 rounded-tl-3xl bg-white/10"></div>
-              </div>
-
-              <!-- JavaScript / TypeScript -->
-              <div class="relative overflow-hidden p-4 rounded-2xl shadow-md bg-gradient-to-br from-yellow-500 to-amber-600 transition-all duration-300 ease-out">
-                <div class="relative z-10">
-                  <div class="flex items-center justify-center w-12 h-12 mb-3 rounded-xl bg-white/20 backdrop-blur">
-                    <img :src="JavaScriptIcon" alt="JavaScript/TypeScript" class="object-contain" width="32" height="32" />
-                  </div>
-                  <h3 class="text-lg font-medium text-white mb-1">JavaScript</h3>
-                  <div class="flex space-x-1 mt-2">
-                    <div class="h-1.5 w-4 bg-white rounded-full"></div>
-                    <div class="h-1.5 w-4 bg-white rounded-full"></div>
-                    <div class="h-1.5 w-4 bg-white rounded-full"></div>
-                    <div class="h-1.5 w-4 bg-white rounded-full"></div>
-                    <div class="h-1.5 w-4 bg-white rounded-full"></div>
-                  </div>
-                </div>
-                <div class="absolute right-0 bottom-0 w-24 h-24 rounded-tl-3xl bg-white/10"></div>
-              </div>
-
-              <!-- SQL -->
-              <div class="relative overflow-hidden p-4 rounded-2xl shadow-md bg-gradient-to-br from-cyan-500 to-cyan-700 transition-all duration-300 ease-out">
-                <div class="relative z-10">
-                  <div class="flex items-center justify-center w-12 h-12 mb-3 rounded-xl bg-white/20 backdrop-blur">
-                    <img alt="SQL" :src="MysqlIcon" class="object-contain" width="32" height="32" />
-                  </div>
-                  <h3 class="text-lg font-medium text-white mb-1">SQL</h3>
-                  <div class="flex space-x-1 mt-2">
-                    <div class="h-1.5 w-4 bg-white rounded-full"></div>
-                    <div class="h-1.5 w-4 bg-white rounded-full"></div>
-                    <div class="h-1.5 w-4 bg-white rounded-full"></div>
-                    <div class="h-1.5 w-4 bg-white rounded-full"></div>
-                    <div class="h-1.5 w-4 bg-white rounded-full"></div>
-                  </div>
-                </div>
-                <div class="absolute right-0 bottom-0 w-24 h-24 rounded-tl-3xl bg-white/10"></div>
-              </div>
-
-              <!-- Spring Boot -->
-              <div class="relative overflow-hidden p-4 rounded-2xl shadow-md bg-gradient-to-br from-green-400 to-green-600 transition-all duration-300 ease-out">
-                <div class="relative z-10">
-                  <div class="flex items-center justify-center w-12 h-12 mb-3 rounded-xl bg-white/20 backdrop-blur">
-                    <img alt="spring" :src="SpringIcon" class="object-contain" width="32" height="32" />
-                  </div>
-                  <h3 class="text-lg font-medium text-white mb-1">Spring Boot</h3>
-                  <div class="flex space-x-1 mt-2">
-                    <div class="h-1.5 w-4 bg-white rounded-full"></div>
-                    <div class="h-1.5 w-4 bg-white rounded-full"></div>
-                    <div class="h-1.5 w-4 bg-white rounded-full"></div>
-                    <div class="h-1.5 w-4 bg-white rounded-full"></div>
-                    <div class="h-1.5 w-4 bg-white rounded-full"></div>
-                  </div>
-                </div>
-                <div class="absolute right-0 bottom-0 w-24 h-24 rounded-tl-3xl bg-white/10"></div>
-              </div>
-
-              <!-- Laravel -->
-              <div class="relative overflow-hidden p-4 rounded-2xl shadow-md bg-gradient-to-br from-red-400 to-red-600 transition-all duration-300 ease-out">
-                <div class="relative z-10">
-                  <div class="flex items-center justify-center w-12 h-12 mb-3 rounded-xl bg-white/20 backdrop-blur">
-                    <img alt="spring" :src="LaravelIcon" class="object-contain shadow" width="32" height="32" />
-                  </div>
-                  <h3 class="text-lg font-medium text-white mb-1">Laravel</h3>
-                  <div class="flex space-x-1 mt-2">
-                    <div class="h-1.5 w-4 bg-white rounded-full"></div>
-                    <div class="h-1.5 w-4 bg-white rounded-full"></div>
-                    <div class="h-1.5 w-4 bg-white rounded-full"></div>
-                    <div class="h-1.5 w-4 bg-white rounded-full"></div>
-                    <div class="h-1.5 w-4 bg-white rounded-full"></div>
-                  </div>
-                </div>
-                <div class="absolute right-0 bottom-0 w-24 h-24 rounded-tl-3xl bg-white/10"></div>
-              </div>
-
-              <!-- Vue JS -->
-              <div class="relative overflow-hidden p-4 rounded-2xl shadow-md bg-gradient-to-br from-green-500 to-green-700 transition-all duration-300 ease-out">
-                <div class="relative z-10">
-                  <div class="flex items-center justify-center w-12 h-12 mb-3 rounded-xl bg-white/20 backdrop-blur">
-                    <img alt="spring" :src="VueIcon" class="object-contain shadow" width="32" height="32" />
-                  </div>
-                  <h3 class="text-lg font-medium text-white mb-1">Vue Js</h3>
-                  <div class="flex space-x-1 mt-2">
-                    <div class="h-1.5 w-4 bg-white rounded-full"></div>
-                    <div class="h-1.5 w-4 bg-white rounded-full"></div>
-                    <div class="h-1.5 w-4 bg-white rounded-full"></div>
-                    <div class="h-1.5 w-4 bg-white rounded-full"></div>
-                    <div class="h-1.5 w-4 bg-white rounded-full"></div>
-                  </div>
-                </div>
-                <div class="absolute right-0 bottom-0 w-24 h-24 rounded-tl-3xl bg-white/10"></div>
-              </div>
-
+              <SkillCard
+                  v-for="(skill, i) in skills"
+                  :key="i"
+                  :title="skill.title"
+                  :icon="skill.icon"
+                  :level="skill.level"
+                  :bgClass="skill.bgClass"
+                  :intersectName="skill.intersectName"
+                  :delay="`${0.3 + i * 0.2}s`"
+                  :visible="visible"
+                  :showSection="showSection"
+              />
 
             </div>
           </div>
