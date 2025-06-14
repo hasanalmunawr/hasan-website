@@ -17,7 +17,10 @@ import SettingsIcon from "vue-material-design-icons/Cog.vue";
 import MagnifyIcon from 'vue-material-design-icons/Magnify.vue'
 import AccountPlusIcon from 'vue-material-design-icons/AccountPlus.vue'
 
+import { useUIStore } from '@/stores/ui'
 
+
+const ui = useUIStore()
 const openSideNav = ref(false);
 const openProjectFile = ref(false);
 const openDropDown = ref(false);
@@ -79,9 +82,7 @@ const menus = [
 
       <!-- Middle Search Bar -->
       <div class="w-[600px] hidden md:block text-white">
-                <button @click="toggleProjectFile">
-                  test
-                </button>
+
       </div>
 
       <!-- Right profile picture -->
@@ -128,24 +129,6 @@ const menus = [
           </div>
         </div>
 
-<!--        <div class="flex items-center space-x-1">-->
-<!--          &lt;!&ndash; Minimize &ndash;&gt;-->
-<!--          <div title="Minimize" class="flex items-center px-3 py-1 rounded-lg text-white transition duration-300">-->
-<!--            <MinimizeIcon class="w-4 text-gray-400 cursor-pointer hover:text-white"/>-->
-<!--          </div>-->
-
-<!--          &lt;!&ndash; Restore &ndash;&gt;-->
-<!--          <div title="Restore" class="flex items-center px-3 py-1 rounded-lg text-white transition duration-300">-->
-<!--            <RestoreIcon class="w-4 text-gray-400 cursor-pointer hover:text-white"/>-->
-<!--          </div>-->
-
-<!--          &lt;!&ndash; Close &ndash;&gt;-->
-<!--          <div title="Close" class="flex items-center px-3 py-1 rounded-lg text-white transition duration-300">-->
-<!--            <CloseIcon class="w-4 text-gray-400 cursor-pointer hover:text-red-500"/>-->
-<!--          </div>-->
-<!--        </div>-->
-
-
       </div>
     </div>
 
@@ -162,7 +145,7 @@ const menus = [
   <div
       v-if="!isMobile"
       :style="{
-    width: openProjectFile ? 'calc(100% - 240px)' : 'calc(100% - 38px)'
+    width: ui.isProjectSidebarOpen ? 'calc(100% - 240px)' : 'calc(100% - 38px)'
   }"
       class="h-[calc(100vh-60px)] absolute right-0 mt-14 transition-colors duration-300 bg-neutral-900 text-black  "
   >
