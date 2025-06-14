@@ -4,7 +4,7 @@
 
 <template>
   <footer
-      class="fixed w-full bottom-0 text-xs text-white bg-neutral-800 border-t-1 border-neutral-900 flex items-center justify-between px-4 py-2 font-mono"
+      class="fixed w-full z-20 bottom-0 text-xs text-white bg-neutral-800 border-t-1 border-neutral-900 flex items-center justify-between px-4 py-2 font-mono"
   >
     <!-- Kiri -->
     <div class="flex items-center space-x-2">

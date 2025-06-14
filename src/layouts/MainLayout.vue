@@ -7,7 +7,7 @@ import ChevronDown from "vue-material-design-icons/ChevronDown.vue";
 import IDEIcon from '../assets/images/icon-IDE.png'
 import HeadLine from "@/components/layouts/HeadLine.vue";
 import Footerlayout from "@/layouts/Footerlayout.vue";
-
+import ProjectView from "@/components/layouts/ProjectView.vue";
 
 import Play from 'vue-material-design-icons/Play.vue'
 import Debug from 'vue-material-design-icons/Bug.vue'
@@ -17,16 +17,13 @@ import SettingsIcon from "vue-material-design-icons/Cog.vue";
 import MagnifyIcon from 'vue-material-design-icons/Magnify.vue'
 import AccountPlusIcon from 'vue-material-design-icons/AccountPlus.vue'
 
-import CloseIcon from 'vue-material-design-icons/Close.vue';
-import MinimizeIcon from 'vue-material-design-icons/WindowMinimize.vue';
-import RestoreIcon from 'vue-material-design-icons/WindowRestore.vue';
-
 
 const openSideNav = ref(false);
+const openProjectFile = ref(false);
 const openDropDown = ref(false);
 const isMobile = computed(() => window.innerWidth < 640);
-const toggleSideNav = () => {
-  openSideNav.value = !openSideNav.value;
+const toggleProjectFile = () => {
+  openProjectFile.value = !openProjectFile.value;
 };
 const toggleDropdown = () => {
   openDropDown.value = !openDropDown.value;
@@ -51,32 +48,18 @@ const menus = [
   <!-- TOP NAVIGATION BAR -->
   <div class="relative top-0">
     <div
-        class="w-full h-[40px] fixed z-20 flex items-center justify-between transition-colors duration-300"
+        class="w-full h-[40px] fixed z-20 px-4 flex items-center justify-between transition-colors duration-300"
         id="TopNav"
         style="background: linear-gradient(to right, rgba(217, 26, 96, 0.3) 0%, rgba(43, 43, 43, 0.9) 35%, #1e1e1e 70%);"
     >
       <!-- Left menu & logo -->
       <div class="flex items-center">
-        <div class="flex items-center text-white cursor-pointer mx-2">
-          <img :src="IDEIcon" width="20" alt=""/>
+        <!-- MacOS-style window buttons -->
+        <div class="flex items-center space-x-2">
+          <div class="w-3 h-3 rounded-full bg-red-500 hover:brightness-125 cursor-pointer"></div>
+          <div class="w-3 h-3 rounded-full bg-yellow-400 hover:brightness-125 cursor-pointer"></div>
+          <div class="w-3 h-3 rounded-full bg-green-500 hover:brightness-125 cursor-pointer"></div>
         </div>
-        <button
-            class="p-1 ml-3 rounded-lg text-white hover:bg-white/20 hover:backdrop-blur-sm hover:text-black transition duration-300"
-            @click="toggleSideNav"
-        >
-          <svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 24 24"
-              fill="white"
-              class="size-5"
-          >
-            <path
-                fill-rule="evenodd"
-                d="M3 5.25a.75.75 0 0 1 .75-.75h16.5a.75.75 0 0 1 0 1.5H3.75A.75.75 0 0 1 3 5.25Zm0 4.5A.75.75 0 0 1 3.75 9h16.5a.75.75 0 0 1 0 1.5H3.75A.75.75 0 0 1 3 9.75Zm0 4.5a.75.75 0 0 1 .75-.75h16.5a.75.75 0 0 1 0 1.5H3.75a.75.75 0 0 1-.75-.75Zm0 4.5a.75.75 0 0 1 .75-.75h16.5a.75.75 0 0 1 0 1.5H3.75a.75.75 0 0 1-.75-.75Z"
-                clip-rule="evenodd"
-            />
-          </svg>
-        </button>
         <div class="mx-2"></div>
         <div
             class="flex items-center px-3 py-1 rounded-lg text-white space-x-2 transition duration-300 hover:bg-white/10 hover:backdrop-blur-sm">
@@ -96,8 +79,9 @@ const menus = [
 
       <!-- Middle Search Bar -->
       <div class="w-[600px] hidden md:block text-white">
-        <!--        <button @click="toastIsi">-->
-        <!--        </button>-->
+                <button @click="toggleProjectFile">
+                  test
+                </button>
       </div>
 
       <!-- Right profile picture -->
@@ -144,22 +128,22 @@ const menus = [
           </div>
         </div>
 
-        <div class="flex items-center space-x-1">
-          <!-- Minimize -->
-          <div title="Minimize" class="flex items-center px-3 py-1 rounded-lg text-white transition duration-300">
-            <MinimizeIcon class="w-4 text-gray-400 cursor-pointer hover:text-white"/>
-          </div>
+<!--        <div class="flex items-center space-x-1">-->
+<!--          &lt;!&ndash; Minimize &ndash;&gt;-->
+<!--          <div title="Minimize" class="flex items-center px-3 py-1 rounded-lg text-white transition duration-300">-->
+<!--            <MinimizeIcon class="w-4 text-gray-400 cursor-pointer hover:text-white"/>-->
+<!--          </div>-->
 
-          <!-- Restore -->
-          <div title="Restore" class="flex items-center px-3 py-1 rounded-lg text-white transition duration-300">
-            <RestoreIcon class="w-4 text-gray-400 cursor-pointer hover:text-white"/>
-          </div>
+<!--          &lt;!&ndash; Restore &ndash;&gt;-->
+<!--          <div title="Restore" class="flex items-center px-3 py-1 rounded-lg text-white transition duration-300">-->
+<!--            <RestoreIcon class="w-4 text-gray-400 cursor-pointer hover:text-white"/>-->
+<!--          </div>-->
 
-          <!-- Close -->
-          <div title="Close" class="flex items-center px-3 py-1 rounded-lg text-white transition duration-300">
-            <CloseIcon class="w-4 text-gray-400 cursor-pointer hover:text-red-500"/>
-          </div>
-        </div>
+<!--          &lt;!&ndash; Close &ndash;&gt;-->
+<!--          <div title="Close" class="flex items-center px-3 py-1 rounded-lg text-white transition duration-300">-->
+<!--            <CloseIcon class="w-4 text-gray-400 cursor-pointer hover:text-red-500"/>-->
+<!--          </div>-->
+<!--        </div>-->
 
 
       </div>
@@ -168,6 +152,7 @@ const menus = [
     <!-- Side Navigation bar -->
     <SideNavDesktop :menus="menus" :isMobile="isMobile" :openSideNav="openSideNav"/>
 
+    <ProjectView :isMobile="isMobile" :openSideNav="openProjectFile" />
     <!-- Mobile friendly Side Nav -->
     <SideNavMobile :menus="menus" :isMobile="isMobile" :openSideNav="openSideNav"/>
   </div>
@@ -177,7 +162,7 @@ const menus = [
   <div
       v-if="!isMobile"
       :style="{
-    width: openSideNav ? 'calc(100% - 240px)' : 'calc(100% - 38px)'
+    width: openProjectFile ? 'calc(100% - 240px)' : 'calc(100% - 38px)'
   }"
       class="h-[calc(100vh-60px)] absolute right-0 mt-14 transition-colors duration-300 bg-neutral-900 text-black  "
   >
